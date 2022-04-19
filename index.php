@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html>
+<?php
+
+$hostname = "localhost";
+$username = "shop";
+$password = "ff";
+$db = "shopping_list";
+
+$dbconnect=mysqli_connect($hostname,$username,$password,$db);
+
+if ($dbconnect->connect_error) {
+  die("Database connection failed: " . $dbconnect->connect_error);
+}
+
+?>
+
 <head>
   <meta charset=utf-8>
   <meta name=viewport content="width=device-width, initial-scale=1">
@@ -137,6 +152,19 @@
   </style>
 </head>
 <body>
+<?php
+
+$query = mysqli_query($dbconnect, "SELECT * FROM items")
+   or die (mysqli_error($dbconnect));
+
+while ($row = mysqli_fetch_array($query)) {
+  echo
+   "<tr>
+    <td>{$row['item']}</td>
+   </tr>\n";
+
+}
+?>
   <aside>
     <h1>Groceries</h1>
 
@@ -148,76 +176,6 @@
     <label>
       <input type=checkbox>
       <span>Button Mushrooms</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Cherry Tomatoes</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Onion</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Peppers</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Cucumber</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Naan Bread</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Feta Cheese</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Food Colouring</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Wooden toothpicks</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Wooden Skewers</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Pickles</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Pickled Veggies</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Olives</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Croutons</span>
-    </label>
-
-    <label>
-      <input type=checkbox>
-      <span>Nice Soup</span>
     </label>
 
   </aside>
