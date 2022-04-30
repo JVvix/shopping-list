@@ -152,23 +152,29 @@ if ($dbconnect->connect_error) {
   </style>
 </head>
 <body>
+
   <aside>
     <h1>Groceries</h1>
 
-	<?php
+<?php
 
-	$query = mysqli_query($dbconnect, "SELECT * FROM items")
-	   or die (mysqli_error($dbconnect));
+$query = mysqli_query($dbconnect, "SELECT * FROM items")
+   or die (mysqli_error($dbconnect));
 
-	while ($row = mysqli_fetch_array($query)) {
-	  echo
-	"<label>
-	<input type=checkbox>
-	    <span>{$row['item']}</span>
-	   </label>\n";
-
-	}
-	?>
+while ($row = mysqli_fetch_array($query)) {
+  echo "<label>
+      <input type=checkbox>
+      <span>{$row['item']}</span>
+</label>\n";
+}
+$item = $_GET['item'];
+if (isset($item)) {
+echo "<label>
+      <input type=checkbox>
+      <span>$item</span>
+      </label>\n";
+}
+?>
   </aside>
   <script>
     // Add Additional Items
@@ -182,14 +188,11 @@ if ($dbconnect->connect_error) {
     button.setAttribute('data-button','outline')
     button.value = '➕'
     button.setAttribute('onclick','addItem(input.value)')
-    //button.setAttribute('onclick',confirm('hello?')
-    //console.log(input.value)
     div.appendChild(text)
     div.appendChild(button)
     aside.appendChild(div)
 
     function addItem(text){
-    console.log(text)
       var div = document.querySelector('div'),
           input = document.getElementById('input')
       if (text !== ''){

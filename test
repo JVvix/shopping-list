@@ -1,19 +1,5 @@
 <!DOCTYPE html>
 <html>
-<?php
-
-$hostname = "localhost";
-$username = "shop";
-$password = "ff";
-$db = "shopping_list";
-
-$dbconnect=mysqli_connect($hostname,$username,$password,$db);
-
-if ($dbconnect->connect_error) {
-  die("Database connection failed: " . $dbconnect->connect_error);
-}
-
-?>
 
 <head>
   <meta charset=utf-8>
@@ -152,23 +138,37 @@ if ($dbconnect->connect_error) {
   </style>
 </head>
 <body>
+<tr>
+    <td>Banana</td>
+   </tr>
+<tr>
+    <td>Apple</td>
+   </tr>
+<tr>
+    <td>Carrots</td>
+   </tr>
+<tr>
+    <td>Bag of Rice</td>
+   </tr>
+<tr>
+    <td>Meat</td>
+   </tr>
+<tr>
+    <td>Vegetables</td>
+   </tr>
   <aside>
     <h1>Groceries</h1>
 
-	<?php
+    <label>
+      <input type=checkbox>
+      <span>Salad greens</span>
+    </label>
 
-	$query = mysqli_query($dbconnect, "SELECT * FROM items")
-	   or die (mysqli_error($dbconnect));
+    <label>
+      <input type=checkbox>
+      <span>Button Mushrooms</span>
+    </label>
 
-	while ($row = mysqli_fetch_array($query)) {
-	  echo
-	"<label>
-	<input type=checkbox>
-	    <span>{$row['item']}</span>
-	   </label>\n";
-
-	}
-	?>
   </aside>
   <script>
     // Add Additional Items
@@ -182,14 +182,11 @@ if ($dbconnect->connect_error) {
     button.setAttribute('data-button','outline')
     button.value = '➕'
     button.setAttribute('onclick','addItem(input.value)')
-    //button.setAttribute('onclick',confirm('hello?')
-    //console.log(input.value)
     div.appendChild(text)
     div.appendChild(button)
     aside.appendChild(div)
 
     function addItem(text){
-    console.log(text)
       var div = document.querySelector('div'),
           input = document.getElementById('input')
       if (text !== ''){
