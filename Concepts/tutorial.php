@@ -26,22 +26,26 @@ if($var % 2 == 0 && $var % 3 == 0) {
 } else {
 	echo "the condition did not meet";
 }
+
+$var = 2;
+while ($var <= 10) {
+	echo "Number: $var <br>";
+	$var++;
+}
+
+$var = 11;
+do {
+	echo "Number: $var <br>";
+	$var++;
+} while ($var <= 10)
  */
-$level = 3;
-switch($level) {
-case 1:
-	echo "you are playing at EASY level";
-break;
-case 2:
-	echo "you are playing at MODERATE level";
-break;
-case 3:
-	echo "you are playing at HARD level";
-break;
-case 4:
-	echo "you are playing at EXTREME level";
-break;
-default:
-	echo "invalid input";
-};
+
+function name() {
+	for ($var = 1; $var <= 6; $var++) {
+		echo "Number: $var <br>";
+	}
+}
+name();
+echo "insert line here...<br>";
+name();
 ?>
