@@ -13,18 +13,14 @@ class fruit {
 		$this->name = $name;
 		$this->color = $color;
 	}
-	function get_name() {
-		return $this->name;
-	}
-
-	function get_color() {
-		return $this->color;
+	function __destruct() {
+		echo "the fruit is {$this->name} and the color is {$this->color}.";
 	}
 }
 $strawberry = new Fruit("Strawberry", "Hot Pink");
-echo $strawberry->get_name();
+/* echo $strawberry->get_name();
 echo "<br>";
-echo $strawberry->get_color();
+echo $strawberry->get_color(); */
 
 ?>
 </body>
