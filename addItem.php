@@ -16,8 +16,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 		echo $sql;
 		$query = mysqli_query($conn, $sql);
 		if ($query) {
+			header("Location: http://pi0");
+			echo "<meta http-equiv='refresh' content='0'>";
 			// echo "<meta http-equiv='refresh' content='0'>";
-			echo "it works!!";
+		// echo "it works!!"; 
 
 		} else {
 			echo 'Error Occured';
