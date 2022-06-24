@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<form action="addItem.php" method="POST"> 
 <?php
 $hostname = "localhost";
 $username = "shop";
@@ -21,7 +21,10 @@ while ($row = mysqli_fetch_array($query)) {
 }
 
 ?>
+
 <form action="addItem.php" method="POST"> 
 	<label for=item>add item: </label><input type="text" name="item" id="item" required><br>
 	<input type="submit" name="submit">
+</form> 
+	<input type="submit" name="delete" value="Delete">
 </form> 

@@ -6,7 +6,7 @@ $db = "items";
 
 $dbconnect=mysqli_connect($hostname,$username,$password,$db);
 
-if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delete"])) {
 	$conn= mysqli_connect($hostname, $username, $password, $db) or die("Connection failed: ".mysqli_connect_error());
 
 	$query = mysqli_query($dbconnect, "SELECT * FROM items")
@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 
 	while ($row = mysqli_fetch_array($query)) {
 		if(isset($_POST{$row['item']})) {
-			$sql = "DELETE FROM items WHERE item =$item";
+			$sql = "DELETE FROM `items` WHERE `item` VALUES (`$item`)";
 			echo $sql;
 			$query = mysqli_query($conn, $sql);
 			if ($query) {
@@ -22,6 +22,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 			}
 		} 
 	}
+}
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+	$conn= mysqli_connect($hostname, $username, $password, $db) or die("Connection failed: ".mysqli_connect_error());
 	if(isset($_POST['item'])) {
 		$item = $_POST['item'];
 
