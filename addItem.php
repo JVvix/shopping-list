@@ -23,18 +23,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delete"])) {
 			$N = count($selectedFruits);
 
 			echo("You selected $N fruits(s): ");
-			while ($row = mysqli_fetch_array($query)) {
-				for($i=0; $i < $N; $i++) {
-					if($selectedFruits[$i] == $row['item']) {
-						$sql = "delete from items where item='{$row['item']}'";
+            for($i=0; $i < $N; $i++) {
+						$sql = "delete from items where item='$selectedFruits[$i]'";
+						// $sql = "delete from items in delete from items in ";
 						echo $sql;
 						$query = mysqli_query($conn, $sql);
 						if ($query) {
 							echo 'it works';
 						}
-					} 
 				}
-			}
 			header("Location: http://pi0");
 		}
 	}
