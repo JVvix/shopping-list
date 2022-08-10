@@ -201,70 +201,70 @@ while ($row = mysqli_fetch_array($query)) {
 		</label>\n <br>";
 }
 
-echo "<input class='button' type='submit' name='delete' value='Remove Checked Item(s)'>
-</form>";
+  echo "<input class='button' type='submit' name='delete' value='Remove Checked Item(s)'>
+  </form>";
 
-echo "<form action='addItem.php' method='post'>
-	<input type='text' name='item' required>
-	<input class='button2' type='submit' name='submit' value='Add Item'>
-</form>";
-/* 	while ($row = mysqli_fetch_array($query)) {
-	  echo
-	"<label>
-	<input type=checkbox>
-	    <span>{$row['item']}</span>
-   </label>\n";
+  echo "<form action='addItem.php' method='post'>
+    <input type='text' name='item' required>
+    <input class='button2' type='submit' name='submit' value='Add Item'>
+  </form>";
+  /* 	while ($row = mysqli_fetch_array($query)) {
+      echo
+    "<label>
+    <input type=checkbox>
+        <span>{$row['item']}</span>
+     </label>\n";
 
-} */
-?>
-<!--
-<form action="addItem.php" method="post">
-	<input type="text" name="item">
-	<input type="submit" name="submit" value="Submit">
-</form> -->
+  } */
+  ?>
+  <!--
+  <form action="addItem.php" method="post">
+    <input type="text" name="item">
+    <input type="submit" name="submit" value="Submit">
+  </form> -->
 
-<?php
-/* $sqlcmd = "INSERT into items (item) values ('" . $_POST["item"] . "');";
-$query = mysqli_query($dbconnect, "SELECT * FROM items");
-$query = mysqli_query($dbconnect, "INSERT into items (item) values ('" . $_POST["item"] . "');"); */
-?>
-  </aside>
-<!--
-  <script>
-    // Add Additional Items
-    var aside = document.querySelector('aside'),
-        div = document.createElement('div'),
-        text = document.createElement('input'),
-        button = document.createElement('input')
-    text.type = 'text'
-    text.id = 'input'
-    button.type = 'button'
-    button.setAttribute('data-button','outline')
-    button.value = '➕'
-    button.setAttribute('onclick','addItem(input.value)')
-    //button.setAttribute('onclick',confirm('hello?')
-    //console.log(input.value)
-    div.appendChild(text)
-    div.appendChild(button)
-    aside.appendChild(div)
+  <?php
+  /* $sqlcmd = "INSERT into items (item) values ('" . $_POST["item"] . "');";
+  $query = mysqli_query($dbconnect, "SELECT * FROM items");
+  $query = mysqli_query($dbconnect, "INSERT into items (item) values ('" . $_POST["item"] . "');"); */
+  ?>
+    </aside>
+  <!--
+    <script>
+      // Add Additional Items
+      var aside = document.querySelector('aside'),
+          div = document.createElement('div'),
+          text = document.createElement('input'),
+          button = document.createElement('input')
+      text.type = 'text'
+      text.id = 'input'
+      button.type = 'button'
+      button.setAttribute('data-button','outline')
+      button.value = '➕'
+      button.setAttribute('onclick','addItem(input.value)')
+      //button.setAttribute('onclick',confirm('hello?')
+      //console.log(input.value)
+      div.appendChild(text)
+      div.appendChild(button)
+      aside.appendChild(div)
 
-    function addItem(text){
-    console.log(text)
-      var div = document.querySelector('div'),
-          input = document.getElementById('input')
-      if (text !== ''){
-        input.value = ''
-        var label = document.createElement('label'),
-            input = document.createElement('input'),
-            span = document.createElement('span')
-        input.type = 'checkbox'
-        span.innerHTML = text
-        label.appendChild(input)
-        label.appendChild(span)
-	div.parentNode.insertBefore(label,div)
-	
+      function addItem(text){
+      console.log(text)
+        var div = document.querySelector('div'),
+            input = document.getElementById('input')
+        if (text !== ''){
+          input.value = ''
+          var label = document.createElement('label'),
+              input = document.createElement('input'),
+              span = document.createElement('span')
+          input.type = 'checkbox'
+          span.innerHTML = text
+          label.appendChild(input)
+          label.appendChild(span)
+    div.parentNode.insertBefore(label,div)
+    
+        }
       }
-    }
-  </script>
-</body>
-</html>
+    </script>
+  </body>
+  </html>

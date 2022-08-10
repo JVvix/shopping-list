@@ -32,7 +32,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delete"])) {
 							echo 'it works';
 						}
 				}
-			header("Location: http://pi0");
+			// header("Location: http://pi0");
+			header("Refresh:0; url=index.php");
+      //echo "<meta http-equiv='refresh' content='0'>";
 		}
 	}
 }
@@ -51,7 +53,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 		echo $sql;
 		$query = mysqli_query($conn, $sql);
 		if ($query) {
-			header("Location: http://pi0");
+			// header("Location: http://pi0");
+			header("Refresh:0; url=index.php");
 			// echo "<meta http-equiv='refresh' content='0'>";
 			// echo "<meta http-equiv='refresh' content='0'>";
 			echo "it works!!"; 
